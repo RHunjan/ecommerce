@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
 //   // update a category by its `id` value
 // });
 
-router.put('/:id', (req, res) => {
+router.put("/:id", (req, res) => {
   // expects {category_name: 'Deli}
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
   Category.update(req.body, {
@@ -64,7 +64,7 @@ router.put('/:id', (req, res) => {
   })
     .then(dbCategoryData => {
       if (!dbCategoryData[0]) {
-        res.status(404).json({ message: 'No category found with this id' });
+        res.status(404).json({ message: "No category found with this id" });
         return;
       }
       res.json(dbCategoryData);
@@ -76,7 +76,7 @@ router.put('/:id', (req, res) => {
 });
  
  // delete a category by its `id` value
-router.delete('/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
   Category.destroy({
     where: {
       id: req.params.id
@@ -84,7 +84,7 @@ router.delete('/:id', (req, res) => {
   })
     .then(dbCategoryData => {
       if (!dbCategoryData) {
-        res.status(404).json({ message: 'No category with this id' });
+        res.status(404).json({ message: "No category with this id" });
         return;
       }
       res.json(dbCategoryData);
